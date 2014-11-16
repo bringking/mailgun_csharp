@@ -43,7 +43,7 @@ The above configuration will send plain text emails using the specified domain a
      //wherever you initialize your user manager
     _userManager = new UserManager<IdentityUser, string>(store);
     //advanced usage
-    _userManager.EmailService = new MailgunMessageService(new MailgunMessageServiceOptions()
+    _userManager.EmailService = new MailgunMessageService(new MailgunMessageServiceOptions
             {
                 ApiKey = "",
                 Domain = "",
@@ -52,8 +52,8 @@ The above configuration will send plain text emails using the specified domain a
                 TrackingClicks = true,
                 TrackingOpen = true,
                 UseDkim = true,
-                DefaultHeaders = new Dictionary<string, string>(){{"X-Some-Custom-Header","Custom"}},
-                DefaultTags = new Collection<string>(){"AuthorizationEmails"}
+                DefaultHeaders = new Dictionary<string, string>{{"X-Some-Custom-Header","Custom"}},
+                DefaultTags = new Collection<string>{"AuthorizationEmails"}
             });
      
 
