@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Mailgun.AspNet.Identity.Core;
 using Mailgun.AspNet.Identity.Exceptions;
+using Mailgun.Exceptions;
 using Mailgun.Messages;
 using Mailgun.Service;
 using Microsoft.AspNet.Identity;
@@ -22,14 +23,9 @@ namespace Mailgun.AspNet.Identity
         /// <param name="apikey"></param>
         public MailgunMessageService(string domain, string apikey)
         {
-            if (string.IsNullOrEmpty(domain))
-            {
-                throw new ArgumentNullException(domain);
-            }
-            if (string.IsNullOrEmpty(apikey))
-            {
-                throw new ArgumentNullException(apikey);
-            }
+            ThrowIf.IsArgumentNull(() => domain);
+            ThrowIf.IsArgumentNull(() => apikey);
+
 
             _domain = domain;
             _messageService = new MessageService(apikey);
@@ -62,11 +58,15 @@ namespace Mailgun.AspNet.Identity
         /// <returns></returns>
         public Task SendAsync(IdentityMessage message)
         {
+            ThrowIf.IsArgumentNull(() => message);
+
             return _options != null ? SendWithOptions(message) : SendWithSimpleParameters(message);
         }
 
         private Task SendWithOptions(IdentityMessage message)
         {
+            ThrowIf.IsArgumentNull(() => message);
+
             var builder = new MessageBuilder();
             builder.
                 SetSubject(message.Subject).
@@ -105,6 +105,8 @@ namespace Mailgun.AspNet.Identity
 
         private Task SendWithSimpleParameters(IdentityMessage message)
         {
+            ThrowIf.IsArgumentNull(() => message);
+
             //Build a mailgun message from the message object
             var msg = new MessageBuilder()
                 .AddToRecipient(new Recipient {Email = message.Destination})
