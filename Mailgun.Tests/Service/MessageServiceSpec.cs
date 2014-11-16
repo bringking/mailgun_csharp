@@ -12,7 +12,7 @@ namespace Mailgun.Tests.Service
     [TestClass]
     public class MessageServiceSpec
     {
-        private const string ApiKey = "key-10f6dd239acca33d0f569dbcf21c3912";
+        private const string ApiKey = "[apiKeyHere]";
         private const string Domain = "sandbox9adbe277a51a430daeb12aaa652af7f1.mailgun.org";
 
         [TestMethod]
@@ -133,15 +133,15 @@ namespace Mailgun.Tests.Service
                     Email = "test_reply@test.com",
                     DisplayName = "Tester Reply"
                 })
-                .AddCustomData("Some Data",JObject.Parse("{\"test\":\"A test json object\"}"))
-                .AddCustomHeader("X-My-Custom-Header","Custom Header")
-                .AddCustomParameter("CustomParam","A custom parameter")
+                .AddCustomData("Some Data", JObject.Parse("{\"test\":\"A test json object\"}"))
+                .AddCustomHeader("X-My-Custom-Header", "Custom Header")
+                .AddCustomParameter("CustomParam", "A custom parameter")
                 .AddTag("Kitchen sink Tag")
                 .AddCampaignId("fake_campaign_id")
                 .SetClickTracking(true)
                 .SetDkim(true)
                 .SetOpenTracking(true)
-                .SetDeliveryTime(DateTime.Now+TimeSpan.FromDays(1))
+                .SetDeliveryTime(DateTime.Now + TimeSpan.FromDays(1))
                 .SetSubject("Kitchen Sink")
                 .SetFromAddress(new Recipient {Email = "bringking@gmail.com", DisplayName = "Mailgun C#"})
                 .SetTextBody("This is the text body")

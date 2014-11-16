@@ -7,7 +7,7 @@ using Should;
 namespace Mailgun.Tests.Extensions
 {
     [TestClass]
-    public class ICollectionExtensionsSpec
+    public class CollectionExtensionsSpec
     {
         [TestMethod]
         public void AddIfNotNullOrEmptyTest()

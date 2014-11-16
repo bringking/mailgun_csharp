@@ -61,7 +61,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Extensions\BooleanExtensionSpec.cs" />
-    <Compile Include="Extensions\ICollectionExtensionsSpec.cs" />
+    <Compile Include="Extensions\CollectionExtensionsSpec.cs" />
     <Compile Include="Messages\MessageBuilderSpec.cs" />
     <Compile Include="Messages\MessageSpec.cs" />
     <Compile Include="Service\MessageServiceSpec.cs" />
