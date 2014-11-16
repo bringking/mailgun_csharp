@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace Mailgun.Exceptions
 {
-    internal static class ThrowIf
+    public static class ThrowIf
     {
         public static void IsPropertyNull<T>(Expression<Func<T>> expression) where T : class
         {

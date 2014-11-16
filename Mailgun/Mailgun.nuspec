@@ -4,11 +4,12 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
+    <description>A .NET Mailgun API wrapper. Currently supports sending messages and batch messages.</description>
     <authors>Charles King</authors>
     <owners>Charles King</owners>
     <projectUrl>https://github.com/bringking/mailgun_csharp</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/bringking/mailgun_csharp/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
     <releaseNotes>Initial Release</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>Mailgun API Mailer REST</tags>
