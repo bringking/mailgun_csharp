@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mailgun")]
+[assembly: AssemblyTitle("Mailgun API Wrapper")]
 [assembly: AssemblyDescription("A Mailgun API library for C#")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mailgun")]
+[assembly: AssemblyCompany("Charles King")]
+[assembly: AssemblyProduct("Mailgun C# API Library")]
 [assembly: AssemblyCopyright("Copyright Charles King ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
