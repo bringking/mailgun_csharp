@@ -42,7 +42,7 @@ The above configuration will send plain text emails using the specified domain a
 
      //wherever you initialize your user manager
     _userManager = new UserManager<IdentityUser, string>(store);
-    //simple usage
+    //advanced usage
     _userManager.EmailService = new MailgunMessageService(new MailgunMessageServiceOptions()
             {
                 ApiKey = "",
