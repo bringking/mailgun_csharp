@@ -10,7 +10,7 @@
     <licenseUrl>https://raw.githubusercontent.com/bringking/mailgun_csharp/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release</releaseNotes>
+    <releaseNotes>Added MailgunMessageServiceOptions implementation</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>Mailgun REST Mailer ASP.net Identity IIdentityMessageService</tags>
   </metadata>
