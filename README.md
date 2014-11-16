@@ -30,10 +30,36 @@ you can use the recommended MessageBuilder.
             
 The current Message object supports all the options listed in the Mailgun documentation [here](http://documentation.mailgun.com/api-sending.html#sending)
 
+##ASP.net Identity Usage
+The new ASP.net Identity system supports the addition of an IIdentityMessageService for sending authorization emails. The Mailgun.AspNet.Identity package has an implementation for use with your Mailgun account. Usage would be something like this-
+
+     //wherever you initialize your user manager
+    _userManager = new UserManager<IdentityUser, string>(store);
+    //simple usage
+    _userManager.EmailService = new MailgunMessageService("domain","apiKey");
+    
+The above configuration will send plain text emails using the specified domain and apiKey over SSL. For more options, you can pass in an IMailgunMessageServiceOptions object, to specify any custom rackspace configuration options you might have.
+
+     //wherever you initialize your user manager
+    _userManager = new UserManager<IdentityUser, string>(store);
+    //simple usage
+    _userManager.EmailService = new MailgunMessageService(new MailgunMessageServiceOptions()
+            {
+                ApiKey = "",
+                Domain = "",
+                TestMode = true,
+                Tracking = true,
+                TrackingClicks = true,
+                TrackingOpen = true,
+                UseDkim = true,
+                DefaultHeaders = new Dictionary<string, string>(){{"X-Some-Custom-Header","Custom"}},
+                DefaultTags = new Collection<string>(){"AuthorizationEmails"}
+            });
+     
+
 ##TODO
 There is much more to do, but on the plate next are-
 
 * Testing for Batch sending
-* ASP.net Microsoft.AspNet.Identity.IIdentityMessageService that allows for plugging Mailgun into the new ASP.net Identity mailing system
 * Stored Messages
 * Events
