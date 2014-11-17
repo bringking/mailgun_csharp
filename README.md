@@ -6,6 +6,16 @@ A Mailgun API library for C#
 Made with inspiration from the [Mailgun-php](https://github.com/mailgun/mailgun-php) implementation, this library wraps the
 Mailgun HTTP API for easy use in C# applications. 
 
+##Download
+You can download the source and build it using VS2013, or use Nuget
+     ```
+          Install-Package mailgun_csharp
+     ```
+     and
+     ```
+          Install-Package Install-Package mailgun_csharp.AspNet.Identity
+     ```
+
 ##Basic usage
 The current implementation supports creating a MessageService and sending Messages. A Message can be created manually or 
 you can use the recommended MessageBuilder.
