@@ -40,9 +40,10 @@ The new ASP.net Identity system supports the addition of an IIdentityMessageServ
     _userManager.EmailService = new MailgunMessageService("domain","apiKey");
 ```
 The above configuration will send plain text emails using the specified domain and apiKey over SSL. For more options, you can pass in an IMailgunMessageServiceOptions object, to specify any custom rackspace configuration options you might have.
-
+```csharp
      //wherever you initialize your user manager
     _userManager = new UserManager<IdentityUser, string>(store);
+    
     //advanced usage
     _userManager.EmailService = new MailgunMessageService(new MailgunMessageServiceOptions
             {
@@ -56,7 +57,7 @@ The above configuration will send plain text emails using the specified domain a
                 DefaultHeaders = new Dictionary<string, string>{{"X-Some-Custom-Header","Custom"}},
                 DefaultTags = new Collection<string>{"AuthorizationEmails"}
             });
-     
+```     
 
 ##TODO
 There is much more to do, but on the plate next are-
