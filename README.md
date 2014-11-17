@@ -9,7 +9,7 @@ Mailgun HTTP API for easy use in C# applications.
 ##Basic usage
 The current implementation supports creating a MessageService and sending Messages. A Message can be created manually or 
 you can use the recommended MessageBuilder.
-
+```csharp
      var mg = new MessageService(ApiKey);
 
             //build a message
@@ -27,7 +27,7 @@ you can use the recommended MessageBuilder.
 
             var content = await mg.SendMessageAsync(Domain, message);
             content.ShouldNotBeNull();
-            
+```          
 The current Message object supports all the options listed in the Mailgun documentation [here](http://documentation.mailgun.com/api-sending.html#sending)
 
 ##ASP.net Identity Usage
