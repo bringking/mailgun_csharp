@@ -1,11 +1,19 @@
-﻿using System.Collections;
+﻿using Mailgun.Core.Messages;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Mailgun.AspNet.Identity.Core
 {
     public interface IMailgunMessageServiceOptions
     {
+        /// <summary>
+        /// The sender name and address
+        /// </summary>
+        IRecipient DefaultFrom { get; set; }
+        /// <summary>
+        /// The reply-to name and address
+        /// </summary>
+        IRecipient DefaultReplyTo { get; set; }
+
         bool UseSsl { get; set; }
         /// <summary>
         /// The mailgun API key

@@ -16,5 +16,13 @@ namespace Mailgun.AspNet.Identity
         public bool TrackingOpen { get; set; }
         public ICollection<string> DefaultTags { get; set; }
         public IDictionary<string, string> DefaultHeaders { get; set; }
+        public Mailgun.Core.Messages.IRecipient DefaultFrom
+        {
+            get;
+            set;
+        }
+        public Mailgun.Core.Messages.IRecipient DefaultReplyTo { get; set; }
+
+
     }
 }

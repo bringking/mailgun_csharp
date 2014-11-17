@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Core\IMailgunMessageService.cs" />
     <Compile Include="Core\IMailgunMessageServiceOptions.cs" />
     <Compile Include="MailgunMessageService.cs" />
     <Compile Include="MailgunMessageServiceOptions.cs" />
