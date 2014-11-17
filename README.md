@@ -11,9 +11,9 @@ You can download the source and build it using VS2013, or use Nuget
      ```
           Install-Package mailgun_csharp
      ```
-     and
+     and the ASP.net package (if needed)
      ```
-          Install-Package Install-Package mailgun_csharp.AspNet.Identity
+         Install-Package mailgun_csharp.AspNet.Identity
      ```
 
 ##Basic usage
