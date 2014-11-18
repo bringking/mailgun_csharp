@@ -72,6 +72,5 @@ The above configuration will send plain text emails using the specified domain a
 ##TODO
 There is much more to do, but on the plate next are-
 
-* Testing for Batch sending
 * Stored Messages
 * Events
