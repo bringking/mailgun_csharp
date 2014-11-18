@@ -40,7 +40,7 @@ namespace Mailgun.Messages
         public HttpContent AsFormContent()
         {
             //return basic form content
-            if (Attachments == null && Inline == null) return new FormUrlEncodedContent(AsKeyValueCollection());
+           // if (Attachments == null && Inline == null) return new FormUrlEncodedContent(AsKeyValueCollection());
 
             var content = new MultipartFormDataContent();
             //there are images or attachments, so process those

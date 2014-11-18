@@ -31,7 +31,7 @@ namespace Mailgun.Tests.Service
             //add 1000 users
             for (var i = 0; i < 1000; i++)
             {
-                builder.AddToRecipient(new Recipient() {Email = string.Format("test{0}@test.com", i)},JObject.Parse("{\"id\":"+i+"}"));
+                builder.AddToRecipient(new Recipient() {Email = string.Format("test{0}@test.com", i)},JObject.Parse("{\"\":"+i+"}"));
             }
 
             var content = await mg.SendMessageAsync(Domain, builder.GetMessage());
