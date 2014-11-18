@@ -25,7 +25,7 @@ namespace Mailgun.Messages
             //check for recipient
             ThrowIf.IsArgumentNull(() => recipient);
 
-            if (_recipientCount >= Constants.MaximumAllowedRecipients)
+            if (_recipientCount == Constants.MaximumAllowedRecipients)
             {
                 throw new Exception("Messages cannot contain more than To 1000 recipients");
             }
@@ -58,7 +58,7 @@ namespace Mailgun.Messages
             //check for recipient
             ThrowIf.IsArgumentNull(() => recipient);
 
-            if (_ccCount >= Constants.MaximumAllowedRecipients)
+            if (_ccCount == Constants.MaximumAllowedRecipients)
             {
                 throw new Exception("Messages cannot contain more than 1000 CC recipients");
             }
@@ -81,7 +81,7 @@ namespace Mailgun.Messages
             //check for recipient
             ThrowIf.IsArgumentNull(() => recipient);
 
-            if (_bccCount >= Constants.MaximumAllowedRecipients)
+            if (_bccCount == Constants.MaximumAllowedRecipients)
             {
                 throw new Exception("Messages cannot contain more than 1000 Bcc recipients");
             }

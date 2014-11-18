@@ -12,8 +12,31 @@ namespace Mailgun.Tests.Service
     [TestClass]
     public class MessageServiceSpec
     {
-        private const string ApiKey = "[apiKeyHere]";
+        private const string ApiKey = "[apikeyHere]";
         private const string Domain = "sandbox9adbe277a51a430daeb12aaa652af7f1.mailgun.org";
+
+
+        [TestMethod]
+        public async Task TestSendBatchMessage()
+        {
+                    var mg = new MessageService(ApiKey);
+
+            //build a message
+            var builder = new MessageBuilder()
+                .SetTestMode(true)
+                .SetSubject("Plain text test")
+                .SetFromAddress(new Recipient {Email = "bringking@gmail.com", DisplayName = "Mailgun C#"})
+                .SetTextBody("This is a test");
+
+            //add 1000 users
+            for (var i = 0; i < 1000; i++)
+            {
+                builder.AddToRecipient(new Recipient() {Email = string.Format("test{0}@test.com", i)},JObject.Parse("{\"id\":"+i+"}"));
+            }
+
+            var content = await mg.SendMessageAsync(Domain, builder.GetMessage());
+            content.ShouldNotBeNull();
+        }
 
         [TestMethod]
         public async Task TestSendMessage()
