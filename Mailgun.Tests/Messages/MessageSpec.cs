@@ -112,7 +112,7 @@ namespace Mailgun.Tests.Messages
                 To = new List<IRecipient> { new Recipient { Email = "test", DisplayName = "test" } },
                 From = new Recipient { DisplayName = "Test", Email = "test" }
             };
-            noAttachments.AsFormContent().ShouldBeType<FormUrlEncodedContent>();
+            noAttachments.AsFormContent().ShouldBeType<MultipartFormDataContent>();
         }
     }
 }

@@ -15,11 +15,19 @@ namespace Mailgun.Tests.Service
         private const string ApiKey = "[apikeyHere]";
         private const string Domain = "sandbox9adbe277a51a430daeb12aaa652af7f1.mailgun.org";
 
+        [TestMethod]
+        public void TestDefaults()
+        {
+            var mg = new MessageService(ApiKey, true,"api.mailgun.net/v3");
+            mg.ApiKey.ShouldEqual(ApiKey);
+            mg.UseSSl.ShouldBeTrue();
+            mg.BaseAddress.ShouldEqual("api.mailgun.net/v3");
+        }
 
         [TestMethod]
         public async Task TestSendBatchMessage()
         {
-                    var mg = new MessageService(ApiKey);
+             var mg = new MessageService(ApiKey);
 
             //build a message
             var builder = new MessageBuilder()

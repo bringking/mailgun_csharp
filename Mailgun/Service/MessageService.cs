@@ -14,22 +14,23 @@ namespace Mailgun.Service
     /// </summary>
     public class MessageService : IMessageService
     {
-        private readonly string _apiKey;
-        private const string BaseAddress = "api.mailgun.net";
-        private const string ApiVersion = "v2";
-        private readonly bool _useSsl;
+        public string ApiKey { get; private set; }
+        public string BaseAddress { get; private set; }
+        public bool UseSSl { get; private set; }
 
         /// <summary>
         /// Create an instance of the mailgun service with the specified apikey
         /// </summary>
         /// <param name="apikey">Your mailgun API Key</param>
         /// <param name="useSsl">Should the library use SSL for all requests?</param>
-        public MessageService(string apikey, bool useSsl = true)
+        /// <param name="baseAddresss"></param>
+        public MessageService(string apikey, bool useSsl = true, string baseAddresss = "api.mailgun.net/v2")
         {
-            _apiKey = apikey;
-            _useSsl = useSsl;
-            
+            ApiKey = apikey;
+            BaseAddress = baseAddresss;
+            UseSSl = useSsl;
         }
+
         /// <summary>
         /// Send a message using the Mailgun API service.
         /// </summary>
@@ -48,19 +49,19 @@ namespace Mailgun.Service
             {
                 var buildUri = new UriBuilder
                 {
-                    Host = BaseAddress + string.Format("/{0}", ApiVersion),
-                    Scheme = _useSsl ? "https" : "http",
+                    Host = BaseAddress,
+                    Scheme = UseSSl ? "https" : "http",
                     Path = string.Format("{0}/messages", workingDomain)
                 };
 
 
                 //add authentication
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
-                    Convert.ToBase64String(Encoding.UTF8.GetBytes("api:" + _apiKey)));
+                    Convert.ToBase64String(Encoding.UTF8.GetBytes("api:" + ApiKey)));
 
 
                 //set the client uri
-                return  await client.PostAsync(buildUri.ToString(), message.AsFormContent());
+                return await client.PostAsync(buildUri.ToString(), message.AsFormContent());
             }
         }
     }
