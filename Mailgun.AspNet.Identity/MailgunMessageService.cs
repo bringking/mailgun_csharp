@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Mailgun.AspNet.Identity.Core;
 using Mailgun.AspNet.Identity.Exceptions;
@@ -24,7 +25,8 @@ namespace Mailgun.AspNet.Identity
         /// <param name="domain">The Mailgun domain to use</param>
         /// <param name="apikey">The Mailgun Apikey to use</param>
         /// <param name="from">The from address to send messages from</param>
-        public MailgunMessageService(string domain, string apikey, string from)
+        /// <param name="baseUrlOverride"> Override the mailgun base URL</param>
+        public MailgunMessageService(string domain, string apikey, string from, string baseUrlOverride = null)
         {
             ThrowIf.IsArgumentNull(() => domain);
             ThrowIf.IsArgumentNull(() => apikey);
@@ -32,7 +34,7 @@ namespace Mailgun.AspNet.Identity
 
             _from = new Recipient {Email = from};
             _domain = domain;
-            _messageService = new MessageService(apikey);
+            _messageService = new MessageService(apikey, true, baseUrlOverride);
         }
 
         /// <summary>
@@ -57,7 +59,7 @@ namespace Mailgun.AspNet.Identity
             }
 
             //set the message service
-            _messageService = new MessageService(options.ApiKey, options.UseSsl);
+            _messageService = new MessageService(options.ApiKey, options.UseSsl, options.BaseUrlOverride);
         }
 
         /// <summary>

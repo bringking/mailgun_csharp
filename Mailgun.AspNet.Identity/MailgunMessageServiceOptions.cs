@@ -22,7 +22,7 @@ namespace Mailgun.AspNet.Identity
             set;
         }
         public Mailgun.Core.Messages.IRecipient DefaultReplyTo { get; set; }
-
+        public string BaseUrlOverride { get; set; }
 
     }
 }

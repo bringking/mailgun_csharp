@@ -56,5 +56,10 @@ namespace Mailgun.AspNet.Identity.Core
         /// </summary>
         IDictionary<string, string> DefaultHeaders { get; set; }
 
+        /// <summary>
+        /// Override the mailgun service base URL
+        /// </summary>
+        string BaseUrlOverride { get; set; }
+
     }
 }
