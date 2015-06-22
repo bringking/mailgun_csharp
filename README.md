@@ -21,6 +21,8 @@ The current implementation supports creating a MessageService and sending Messag
 you can use the recommended MessageBuilder.
 ```csharp
      var mg = new MessageService(ApiKey);
+     //var mg = new MessageService(ApiKey,false); //you can specify to use SSL or not, which determines the url API scheme to use
+     //var mg = new MessageService(ApiKey,false,"api.mailgun.net/v3"); //you can also override the base URL, which defaults to v2
 
      //build a message
      var message = new MessageBuilder()
@@ -65,7 +67,8 @@ The above configuration will send plain text emails using the specified domain a
                 TrackingOpen = true,
                 UseDkim = true,
                 DefaultHeaders = new Dictionary<string, string>{{"X-Some-Custom-Header","Custom"}},
-                DefaultTags = new Collection<string>{"AuthorizationEmails"}
+                DefaultTags = new Collection<string>{"AuthorizationEmails"},
+                BaseUrlOverride = "api.mailgun.net/v3" //use a different base URL
             });
 ```     
 
