@@ -249,6 +249,13 @@ namespace Mailgun.Messages
             return this;
         }
 
+        public IMessageBuilder SetTracking(bool enabled)
+        {
+            _message.Tracking = enabled;
+            return this;
+        }
+
+
         public IMessageBuilder SetDeliveryTime(DateTime dateTime, TimeZone zone = null)
         {
             _message.DeliveryTime = zone == null ? dateTime.ToUniversalTime() : zone.ToUniversalTime(dateTime);

@@ -73,7 +73,6 @@ namespace Mailgun.Core.Messages
         IMessageBuilder SetHtmlBody(string htmlBody);
 
         /// <summary>
-        /// 
         /// Add an attachment to the mail message
         /// </summary>
         /// <returns>IMessageBuilder</returns>
@@ -112,6 +111,13 @@ namespace Mailgun.Core.Messages
         /// <param name="enabled">Flag</param>
         /// <returns>IMessageBuilder</returns>
         IMessageBuilder SetDkim(bool enabled);
+
+        /// <summary>
+        /// Set tracking to be enabled for this mail message
+        /// </summary>
+        /// <param name="enabled">Flag</param>
+        /// <returns></returns>
+        IMessageBuilder SetTracking(bool enabled);
 
         /// <summary>
         /// Set open tracking to be enabled for this mail message
