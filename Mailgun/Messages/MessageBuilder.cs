@@ -188,6 +188,20 @@ namespace Mailgun.Messages
             return this;
         }
 
+        public IMessageBuilder AddAttachment(IFileAttachment file)
+        {
+            ThrowIf.IsArgumentNull(() => file);
+            
+            if (_message.FileAttachments == null)
+            {
+                _message.FileAttachments = new Collection<IFileAttachment>();
+            }
+            //Add
+            _message.FileAttachments.Add(file);
+
+            return this;
+        }
+
         public IMessageBuilder AddInlineImage(FileInfo file)
         {
             ThrowIf.IsArgumentNull(() => file);

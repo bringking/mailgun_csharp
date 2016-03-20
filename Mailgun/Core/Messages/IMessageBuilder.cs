@@ -79,6 +79,12 @@ namespace Mailgun.Core.Messages
         IMessageBuilder AddAttachment(FileInfo file);
 
         /// <summary>
+        /// Add an attachment to the mail message
+        /// </summary>
+        /// <returns></returns>
+        IMessageBuilder AddAttachment(IFileAttachment file);
+
+        /// <summary>
         /// Add an image inline into the message body
         /// </summary>
         /// <returns>IMessageBuilder</returns>

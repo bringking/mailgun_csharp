@@ -23,6 +23,7 @@ namespace Mailgun.Messages
         public string Text { get; set; }
         public string Html { get; set; }
         public ICollection<FileInfo> Attachments { get; set; }
+        public ICollection<IFileAttachment> FileAttachments { get; set; }
         public ICollection<FileInfo> Inline { get; set; }
         public ICollection<string> Tags { get; set; }
         public string CampaignId { get; set; }
@@ -52,6 +53,16 @@ namespace Mailgun.Messages
                     content.Add(new ByteArrayContent(File.ReadAllBytes(file.FullName)), "attachment", file.Name);
                 }
             }
+
+            if (FileAttachments != null && FileAttachments.Count > 0)
+            {
+                //add attachments
+                foreach (var file in FileAttachments)
+                {
+                    content.Add(new ByteArrayContent(file.Data), "attachment", file.Name);
+                }
+            }
+
             if (Inline != null && Inline.Count > 0)
             {
                 //add inline images

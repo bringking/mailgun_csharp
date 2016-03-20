@@ -51,6 +51,11 @@ namespace Mailgun.Core.Messages
         ICollection<FileInfo> Attachments { get; set; }
 
         /// <summary>
+        /// Alternate format file attachments.
+        /// </summary>
+        ICollection<IFileAttachment> FileAttachments { get; set; }
+
+        /// <summary>
         /// Images to inline
         /// </summary>
         ICollection<FileInfo> Inline { get; set; }
