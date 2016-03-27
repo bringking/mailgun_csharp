@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Core\Messages\IFileAttachment.cs" />
     <Compile Include="Core\Messages\IMessage.cs" />
     <Compile Include="Core\Messages\IMessageBuilder.cs" />
     <Compile Include="Core\Messages\IRecipient.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Extensions\BooleanExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Messages\FileAttachment.cs" />
     <Compile Include="Messages\Recipient.cs" />
     <Compile Include="Service\MessageService.cs" />
     <Compile Include="Core\Service\IMessageService.cs" />
