@@ -1,3 +1,7 @@
+Maintainer needed!
+==============
+I don't use this library anymore, thus I am not tracking the needed updates and changes. It needs a maintainer. Please reach out if you would like to take over or become an admin level collaborator. 
+
 mailgun_csharp
 ==============
 
