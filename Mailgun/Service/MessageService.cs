@@ -23,11 +23,11 @@ namespace Mailgun.Service
         /// </summary>
         /// <param name="apikey">Your mailgun API Key</param>
         /// <param name="useSsl">Should the library use SSL for all requests?</param>
-        /// <param name="baseAddresss"></param>
-        public MessageService(string apikey, bool useSsl = true, string baseAddresss = "api.mailgun.net/v2")
+        /// <param name="baseAddress">Base address of the mailgun api, excluding the scheme, e.g. api.mailgun.net/v3</param>
+        public MessageService(string apikey, bool useSsl = true, string baseAddress = "api.mailgun.net/v3")
         {
             ApiKey = apikey;
-            BaseAddress = baseAddresss;
+            BaseAddress = baseAddress;
             UseSSl = useSsl;
         }
 
