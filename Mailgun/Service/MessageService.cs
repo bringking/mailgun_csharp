@@ -61,7 +61,7 @@ namespace Mailgun.Service
 
 
                 //set the client uri
-                return await client.PostAsync(buildUri.ToString(), message.AsFormContent());
+                return await client.PostAsync(buildUri.ToString(), message.AsFormContent()).ConfigureAwait(false);
             }
         }
     }
