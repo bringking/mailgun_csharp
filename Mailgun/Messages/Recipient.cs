@@ -26,7 +26,7 @@ namespace Mailgun.Messages
         {
             return string.IsNullOrEmpty(DisplayName)
                 ? Email
-                : string.Format("{0} <{1}>", DisplayName, Email);
+                : string.Format("\"{0}\" <{1}>", DisplayName, Email);
             ;
         }
     }
