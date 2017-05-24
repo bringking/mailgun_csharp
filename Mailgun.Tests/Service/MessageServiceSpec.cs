@@ -106,7 +106,7 @@ namespace Mailgun.Tests.Service
                 .SetSubject("Attachment test")
                 .SetFromAddress(new Recipient {Email = "bringking@gmail.com", DisplayName = "Mailgun C#"})
                 .SetHtmlBody("<html><h1>I have an attachment</h1></html>")
-                .AddAttachment(new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg"))
+                .AddAttachment(new FileInfo(Consts.PictureFileName))
                 .GetMessage();
 
             var content = await mg.SendMessageAsync(Domain, message);
@@ -129,7 +129,7 @@ namespace Mailgun.Tests.Service
                 .SetSubject("Inline image test")
                 .SetFromAddress(new Recipient {Email = "bringking@gmail.com", DisplayName = "Mailgun C#"})
                 .SetHtmlBody("<html>Inline image here: <img src=\"cid:Desert.jpg\"></html>")
-                .AddInlineImage(new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg"))
+                .AddInlineImage(new FileInfo(Consts.PictureFileName))
                 .GetMessage();
 
             var content = await mg.SendMessageAsync(Domain, message);
@@ -142,6 +142,7 @@ namespace Mailgun.Tests.Service
             var mg = new MessageService(ApiKey);
 
             //build a message
+            var picturesDesert = Consts.PictureFileName;
             var message = new MessageBuilder()
                 .SetTestMode(true)
                 .AddToRecipient(new Recipient
@@ -177,8 +178,8 @@ namespace Mailgun.Tests.Service
                 .SetFromAddress(new Recipient {Email = "bringking@gmail.com", DisplayName = "Mailgun C#"})
                 .SetTextBody("This is the text body")
                 .SetHtmlBody("<html>Inline image here: <img src=\"cid:Desert.jpg\"></html>")
-                .AddInlineImage(new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg"))
-                .AddAttachment(new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg"))
+                .AddInlineImage(new FileInfo(picturesDesert))
+                .AddAttachment(new FileInfo(picturesDesert))
                 .GetMessage();
 
             var content = await mg.SendMessageAsync(Domain, message);

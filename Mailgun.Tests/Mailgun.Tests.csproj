@@ -63,6 +63,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Consts.cs" />
     <Compile Include="Extensions\BooleanExtensionSpec.cs" />
     <Compile Include="Extensions\CollectionExtensionsSpec.cs" />
     <Compile Include="Messages\MessageBuilderSpec.cs" />
@@ -78,6 +79,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="test.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
