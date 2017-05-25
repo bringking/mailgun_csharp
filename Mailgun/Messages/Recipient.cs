@@ -1,4 +1,5 @@
 ﻿using Mailgun.Core.Messages;
+using Mailgun.Exceptions;
 
 namespace Mailgun.Messages
 {
@@ -24,10 +25,30 @@ namespace Mailgun.Messages
         /// <returns></returns>
         public string ToFormattedString()
         {
-            return string.IsNullOrEmpty(DisplayName)
+            ValidateEmail();
+            var displayName = DisplayName ?? "";
+            //Escape quotes in display name
+            displayName = displayName.Replace("\"", "\\\"");
+            return displayName == ""
                 ? Email
-                : string.Format("\"{0}\" <{1}>", DisplayName, Email);
-            ;
+                : $"\"{displayName}\" <{Email}>";
+        }
+
+        /// <summary>
+        /// That's just some basic checks to handle already happened situations. Mailgun doesn't signal you
+        /// specific failing emails (and it can be hundreds of them in one batch in some scenarios).
+        /// Better check something on client side
+        /// </summary>
+        private void ValidateEmail()
+        {
+            if (!Email.Contains("@"))
+            {
+                throw new InvalidEmailException(Email);
+            }
+            if (Email.Contains(".@"))
+            {
+                throw new InvalidEmailException(Email);
+            }
         }
     }
 }

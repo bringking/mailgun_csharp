@@ -52,6 +52,7 @@
     <Compile Include="Core\Messages\IMessage.cs" />
     <Compile Include="Core\Messages\IMessageBuilder.cs" />
     <Compile Include="Core\Messages\IRecipient.cs" />
+    <Compile Include="Exceptions\InvalidEmailException.cs" />
     <Compile Include="Exceptions\RequiredPropertyNullException.cs" />
     <Compile Include="Exceptions\ThrowIf.cs" />
     <Compile Include="Extensions\BooleanExtensions.cs" />

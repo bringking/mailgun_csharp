@@ -81,7 +81,7 @@ namespace Mailgun.Tests.Messages
                 To = new List<IRecipient> {new Recipient {Email = "test", DisplayName = "test"}},
                 From = new Recipient { DisplayName = "Test", Email = "test"},
                 Attachments =
-                    new Collection<FileInfo> {new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg")}
+                    new Collection<FileInfo> {new FileInfo(Consts.PictureFileName)}
             };
             attachmentMessage.AsFormContent().ShouldBeType<MultipartFormDataContent>();
             //A message with inline images should always be multi part
@@ -90,7 +90,7 @@ namespace Mailgun.Tests.Messages
                      To = new List<IRecipient> {new Recipient {Email = "test", DisplayName = "test"}},
                 From = new Recipient { DisplayName = "Test", Email = "test"},
                 Inline =
-                    new Collection<FileInfo> {new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg")}
+                    new Collection<FileInfo> {new FileInfo(Consts.PictureFileName)}
             };
             inlineMessage.AsFormContent().ShouldBeType<MultipartFormDataContent>();
 
@@ -100,9 +100,9 @@ namespace Mailgun.Tests.Messages
                      To = new List<IRecipient> {new Recipient {Email = "test", DisplayName = "test"}},
                 From = new Recipient { DisplayName = "Test", Email = "test"},
                 Inline =
-                    new Collection<FileInfo> {new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg")},
+                    new Collection<FileInfo> {new FileInfo(Consts.PictureFileName)},
                 Attachments =
-                    new Collection<FileInfo> {new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg")}
+                    new Collection<FileInfo> {new FileInfo(Consts.PictureFileName)}
             };
             both.AsFormContent().ShouldBeType<MultipartFormDataContent>();
 

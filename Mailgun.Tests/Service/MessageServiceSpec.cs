@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using Mailgun.Exceptions;
 using Mailgun.Messages;
 using Mailgun.Service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,6 +13,7 @@ namespace Mailgun.Tests.Service
     [TestClass]
     public class MessageServiceSpec
     {
+        //TODO: move api keys to .config files
         private const string ApiKey = "[apikeyHere]";
         private const string Domain = "sandbox9adbe277a51a430daeb12aaa652af7f1.mailgun.org";
 
@@ -69,6 +71,46 @@ namespace Mailgun.Tests.Service
         }
 
         [TestMethod]
+        public async Task TestParseSimple() => await TestEmailParsing("", "devs@mailgun.net");
+
+        [TestMethod]
+        public async Task TestWithDisplayName() => await TestEmailParsing("Dasha Dasha", "dashaxxx@example.com");
+
+        [TestMethod]
+        public async Task TestWithBrackets() => await TestEmailParsing("Dasha (and thats all)", "dashaxxx@example.com");
+
+        [TestMethod, ExpectedException(typeof(InvalidEmailException))]
+        public async Task TestWithDot() => await TestEmailParsing("Dasha", "dashaxxx.@example.com");
+
+        [TestMethod, ExpectedException(typeof(InvalidEmailException))]
+        public async Task TestWithoutAt() => await TestEmailParsing("Dasha", "dashaxxx");
+
+        [TestMethod]
+        public async Task TestWithQuotes() => await TestEmailParsing("\"Jonh Smith \"JSmith\"", "joesmith@example.com");
+
+        private static async Task TestEmailParsing(string displayName, string email)
+        {
+            var mg = new MessageService(ApiKey);
+            //build a message
+            var message = new MessageBuilder()
+                .AddToRecipient(new Recipient
+                {
+                    Email = email,
+                    DisplayName = displayName
+                })
+                .SetTestMode(true)
+                .SetSubject("Plain text test")
+                .SetFromAddress(new Recipient {Email = email, DisplayName = displayName})
+                .SetTextBody("This is a test")
+                .GetMessage();
+
+            var content = await mg.SendMessageAsync(Domain, message);
+            content.ShouldNotBeNull();
+            content.IsSuccessStatusCode.ShouldBeTrue(
+                $"Email: {email}, DisplayName: {displayName}, Status code: {content.StatusCode}, Content: {await content.Content.ReadAsStringAsync()}");
+        }
+
+        [TestMethod]
         public async Task TestSendHtmlMessage()
         {
             var mg = new MessageService(ApiKey);
@@ -106,7 +148,7 @@ namespace Mailgun.Tests.Service
                 .SetSubject("Attachment test")
                 .SetFromAddress(new Recipient {Email = "bringking@gmail.com", DisplayName = "Mailgun C#"})
                 .SetHtmlBody("<html><h1>I have an attachment</h1></html>")
-                .AddAttachment(new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg"))
+                .AddAttachment(new FileInfo(Consts.PictureFileName))
                 .GetMessage();
 
             var content = await mg.SendMessageAsync(Domain, message);
@@ -129,7 +171,7 @@ namespace Mailgun.Tests.Service
                 .SetSubject("Inline image test")
                 .SetFromAddress(new Recipient {Email = "bringking@gmail.com", DisplayName = "Mailgun C#"})
                 .SetHtmlBody("<html>Inline image here: <img src=\"cid:Desert.jpg\"></html>")
-                .AddInlineImage(new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg"))
+                .AddInlineImage(new FileInfo(Consts.PictureFileName))
                 .GetMessage();
 
             var content = await mg.SendMessageAsync(Domain, message);
@@ -142,6 +184,7 @@ namespace Mailgun.Tests.Service
             var mg = new MessageService(ApiKey);
 
             //build a message
+            var picturesDesert = Consts.PictureFileName;
             var message = new MessageBuilder()
                 .SetTestMode(true)
                 .AddToRecipient(new Recipient
@@ -177,8 +220,8 @@ namespace Mailgun.Tests.Service
                 .SetFromAddress(new Recipient {Email = "bringking@gmail.com", DisplayName = "Mailgun C#"})
                 .SetTextBody("This is the text body")
                 .SetHtmlBody("<html>Inline image here: <img src=\"cid:Desert.jpg\"></html>")
-                .AddInlineImage(new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg"))
-                .AddAttachment(new FileInfo("C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg"))
+                .AddInlineImage(new FileInfo(picturesDesert))
+                .AddAttachment(new FileInfo(picturesDesert))
                 .GetMessage();
 
             var content = await mg.SendMessageAsync(Domain, message);
