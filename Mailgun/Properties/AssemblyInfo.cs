@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -8,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Mailgun API Wrapper")]
 [assembly: AssemblyDescription("A Mailgun API library for C#")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Charles King")]
+[assembly: AssemblyCompany("Charles King, Leonid Tsarev")]
 [assembly: AssemblyProduct("Mailgun C# API Library")]
-[assembly: AssemblyCopyright("Copyright Charles King ©  2014")]
+[assembly: AssemblyCopyright("Copyright Charles King, Leonid Tsarev © 2014—2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,4 +32,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.5.0.0")]
-[assembly: AssemblyFileVersion("0.5.0.0")]
+[assembly: AssemblyInformationalVersion("0.6.0.0")]
+[assembly: AssemblyFileVersion("0.6.0.0")]

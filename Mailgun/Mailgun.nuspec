@@ -6,12 +6,12 @@
     <title>$title$</title>
     <description>A .NET Mailgun API wrapper. Currently supports sending messages and batch messages.</description>
     <authors>Charles King</authors>
-    <owners>Charles King</owners>
+    <owners>Charles King, Leonid Tsarev</owners>
     <projectUrl>https://github.com/bringking/mailgun_csharp</projectUrl>
     <licenseUrl>https://raw.githubusercontent.com/bringking/mailgun_csharp/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>Made ThrowIf public for external use</releaseNotes>
-    <copyright>Copyright 2014</copyright>
+    <releaseNotes>UPDATE: Fix quoting of from/to addresses to better comply to RFC and mailgun requirements.</releaseNotes>
+    <copyright>Copyright 2014—2017</copyright>
     <tags>Mailgun API Mailer REST</tags>
   </metadata>
 </package>
