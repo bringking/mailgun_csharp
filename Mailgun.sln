@@ -1,20 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailgun", "Mailgun\Mailgun.csproj", "{5F4E75AC-9C32-4D30-85BF-E7785E0C26C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailgun", "Mailgun\Mailgun.csproj", "{96D90F85-70B2-4244-B252-BF5E623A0376}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailgun.Tests", "Mailgun.Tests\Mailgun.Tests.csproj", "{3C992A66-362F-4E3F-8FEF-1DF909DC5DE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailgun.Tests", "Mailgun.Tests\Mailgun.Tests.csproj", "{948532EB-AB41-4B70-BD46-64843B12B86C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9CCCF76E-0D7C-4BB9-BC29-B0E2E1C142CD}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailgun.AspNet.Identity", "Mailgun.AspNet.Identity\Mailgun.AspNet.Identity.csproj", "{F4A79FED-1A9D-4707-8940-4888B1C1F01E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mailgun.AspNet.Identity", "Mailgun.AspNet.Identity\Mailgun.AspNet.Identity.csproj", "{6E4586E9-3CA6-47D2-858C-2C9985E46EBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,20 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5F4E75AC-9C32-4D30-85BF-E7785E0C26C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F4E75AC-9C32-4D30-85BF-E7785E0C26C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F4E75AC-9C32-4D30-85BF-E7785E0C26C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F4E75AC-9C32-4D30-85BF-E7785E0C26C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C992A66-362F-4E3F-8FEF-1DF909DC5DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C992A66-362F-4E3F-8FEF-1DF909DC5DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C992A66-362F-4E3F-8FEF-1DF909DC5DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C992A66-362F-4E3F-8FEF-1DF909DC5DE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4A79FED-1A9D-4707-8940-4888B1C1F01E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4A79FED-1A9D-4707-8940-4888B1C1F01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4A79FED-1A9D-4707-8940-4888B1C1F01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4A79FED-1A9D-4707-8940-4888B1C1F01E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D90F85-70B2-4244-B252-BF5E623A0376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D90F85-70B2-4244-B252-BF5E623A0376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D90F85-70B2-4244-B252-BF5E623A0376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D90F85-70B2-4244-B252-BF5E623A0376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{948532EB-AB41-4B70-BD46-64843B12B86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{948532EB-AB41-4B70-BD46-64843B12B86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{948532EB-AB41-4B70-BD46-64843B12B86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{948532EB-AB41-4B70-BD46-64843B12B86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E4586E9-3CA6-47D2-858C-2C9985E46EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E4586E9-3CA6-47D2-858C-2C9985E46EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E4586E9-3CA6-47D2-858C-2C9985E46EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E4586E9-3CA6-47D2-858C-2C9985E46EBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2BD0C8E-1E31-404D-AE49-CD920E396621}
 	EndGlobalSection
 EndGlobal
