@@ -16,6 +16,13 @@ namespace Mailgun.Core.Messages
         IMessageBuilder AddToRecipient(IRecipient recipient, JObject recipientVariables = null);
 
         /// <summary>
+        /// Add a recipient list 'to' the to field of the message being built
+        /// </summary>
+        /// <param name="recipients"></param>
+        /// <returns></returns>
+        IMessageBuilder AddToRecipientList(IEnumerable<IRecipient> recipients);
+
+        /// <summary>
         /// Add a recipient to the 'cc' field of the message being built
         /// </summary>
         /// <param name="recipient">The recipient details</param>

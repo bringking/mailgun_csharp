@@ -20,6 +20,16 @@ namespace Mailgun.Messages
             _message = new Message();
         }
 
+        public IMessageBuilder AddToRecipientList(IEnumerable<IRecipient> recipients)
+        {
+            foreach (IRecipient recipient in recipients)
+            {
+                AddToRecipient(recipient);
+            }
+            return this;
+        }
+
+
         public IMessageBuilder AddToRecipient(IRecipient recipient, JObject recipientVariables = null)
         {
             //check for recipient
@@ -191,7 +201,7 @@ namespace Mailgun.Messages
         public IMessageBuilder AddAttachment(IFileAttachment file)
         {
             ThrowIf.IsArgumentNull(() => file);
-            
+
             if (_message.FileAttachments == null)
             {
                 _message.FileAttachments = new Collection<IFileAttachment>();
