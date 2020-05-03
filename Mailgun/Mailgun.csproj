@@ -1,12 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+    <TargetFramework>netstandard2</TargetFramework>
+    <IsPackable>True</IsPackable>
+    <PackageVersion>0.7.0-preview1</PackageVersion>
+    <PackageId>mailgun_csharp</PackageId>
+    <Authors>Charles King</Authors>
+    <PackageDescription>
+      A .NET Mailgun API wrapper. Currently supports sending messages and batch messages.
+    </PackageDescription>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Mailgun API Mailer</PackageTags>
+    <RepositoryUrl>https://github.com/bringking/mailgun_csharp</RepositoryUrl>
+    <PackageReleaseNotes>
+      Package moved to netstandard 2.0.
+      Highly likely it will be last release ever.
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="System.Net.Http" Version="4.3.3" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
   </ItemGroup>
 
 </Project>
