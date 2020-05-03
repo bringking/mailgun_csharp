@@ -16,6 +16,7 @@
       Highly likely it will be last release ever.
        - Package moved to netstandard 2.0.
        - Added ScheduleDeliveryTime that accepts DateTimeOffset
+       - Set DKIM=true by default
     </PackageReleaseNotes>
   </PropertyGroup>
 

@@ -17,7 +17,10 @@ namespace Mailgun.Messages
 
         public MessageBuilder()
         {
-            _message = new Message();
+            _message = new Message()
+            {
+                Dkim = true, //That's a sane default
+            };
         }
 
         public IMessageBuilder AddToRecipientList(IEnumerable<IRecipient> recipients)
