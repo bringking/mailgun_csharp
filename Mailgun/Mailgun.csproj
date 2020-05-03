@@ -13,8 +13,9 @@
     <PackageTags>Mailgun API Mailer</PackageTags>
     <RepositoryUrl>https://github.com/bringking/mailgun_csharp</RepositoryUrl>
     <PackageReleaseNotes>
-      Package moved to netstandard 2.0.
       Highly likely it will be last release ever.
+       - Package moved to netstandard 2.0.
+       - Added ScheduleDeliveryTime that accepts DateTimeOffset
     </PackageReleaseNotes>
   </PropertyGroup>
 
