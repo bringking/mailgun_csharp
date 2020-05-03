@@ -286,6 +286,12 @@ namespace Mailgun.Messages
             return this;
         }
 
+        public IMessageBuilder ScheduleDeliveryTime(DateTimeOffset dateTime)
+        {
+            _message.DeliveryTime = dateTime.UtcDateTime;
+            return this;
+        }
+
         public IMessageBuilder AddCustomData(string customName, JObject data)
         {
             ThrowIf.IsArgumentNull(() => customName);
