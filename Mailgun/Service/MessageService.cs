@@ -82,7 +82,8 @@ namespace Mailgun.Service
 
 
                 //set the client uri
-                return await client.PostAsync(buildUri.ToString(), message.AsFormContent());
+                return await client.PostAsync(buildUri.ToString(), message.AsFormContent())
+                    .ConfigureAwait(false);
                 //TODO may be read answer and throw exceptions on errors.
                 //or introduce some new API that will do that
             }
