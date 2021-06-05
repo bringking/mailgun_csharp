@@ -14,9 +14,11 @@ namespace Mailgun.Service
     /// </summary>
     public class MessageService : IMessageService
     {
-        public string ApiKey { get; private set; }
-        public string BaseAddress { get; private set; }
-        public bool UseSSl { get; private set; }
+        private readonly IHttpClientFactory httpClientFactory;
+
+        public string ApiKey { get;  }
+        public string BaseAddress { get;  }
+        public bool UseSSl { get; }
 
         /// <summary>
         /// Create an instance of the mailgun service with the specified apikey
@@ -24,11 +26,30 @@ namespace Mailgun.Service
         /// <param name="apikey">Your mailgun API Key</param>
         /// <param name="useSsl">Should the library use SSL for all requests?</param>
         /// <param name="baseAddress">Base address of the mailgun api, excluding the scheme, e.g. api.mailgun.net/v3</param>
+        [Obsolete("Consider providing IHttpClientFactory parameter")]
         public MessageService(string apikey, bool useSsl = true, string baseAddress = "api.mailgun.net/v3")
         {
             ApiKey = apikey;
             BaseAddress = baseAddress;
             UseSSl = useSsl;
+            this.httpClientFactory = null;
+        }
+
+        /// <summary>
+        /// Create an instance of the mailgun service with the specified apikey
+        /// </summary>
+        /// <param name="apikey">Your mailgun API Key</param>
+        /// <param name="httpClientFactory">HTTP client factory. See https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests</param>
+        /// <param name="baseAddress">Base address of the mailgun api, excluding the scheme, e.g. api.mailgun.net/v3</param>
+        /// <remarks>
+        ///     SSL parameter was removed, because it makes no sense to disable SSL.
+        /// </remarks>
+        public MessageService(string apikey, IHttpClientFactory httpClientFactory,  string baseAddress = "api.mailgun.net/v3")
+        {
+            ApiKey = apikey;
+            this.httpClientFactory = httpClientFactory;
+            BaseAddress = baseAddress;
+            UseSSl = true;
         }
 
         /// <summary>
@@ -45,7 +66,7 @@ namespace Mailgun.Service
 
 
             //build request
-            using (var client = new HttpClient())
+            using (var client = httpClientFactory?.CreateClient("Mailgun.MessageService") ?? new HttpClient())
             {
                 var buildUri = new UriBuilder
                 {
