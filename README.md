@@ -1,6 +1,7 @@
-Maintainer needed!
+Maintained but not developed
 ==============
-I don't use this library anymore, thus I am not tracking the needed updates and changes. It needs a maintainer. Please reach out if you would like to take over or become an admin level collaborator. 
+This project now is not actively developed. But it works, used for production projects. I'll do my best to fix issues if they appear (they rarely do), and if somebody will contribute some improvements, I'll review them.
+@leotsarev
 
 mailgun_csharp
 ==============
