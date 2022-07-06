@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2</TargetFramework>
     <IsPackable>True</IsPackable>
-    <PackageVersion>0.7.0-preview2</PackageVersion>
+    <PackageVersion>0.7.0</PackageVersion>
     <PackageId>mailgun_csharp</PackageId>
     <Authors>Charles King</Authors>
     <PackageDescription>
