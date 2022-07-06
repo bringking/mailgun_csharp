@@ -3,6 +3,8 @@ Maintained but not developed
 This project now is not actively developed. But it works, used for production projects. I'll do my best to fix issues if they appear (they rarely do), and if somebody will contribute some improvements, I'll review them.
 @leotsarev
 
+![Nuget](https://img.shields.io/nuget/v/mailgun_csharp)
+
 mailgun_csharp
 ==============
 
