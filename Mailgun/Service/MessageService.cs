@@ -150,11 +150,4 @@ namespace Mailgun.Service
         }
     }
 
-    public enum PagingType
-    {
-        Next,
-        Previous,
-        First,
-        Last
-    }
 }
