@@ -1,11 +1,12 @@
-﻿// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Mailgun.Events
 {
 
-
+    /// <summary>
+    /// Represents a message event, <see href="https://documentation.mailgun.com/en/latest/api-events.html">MailGun documentation for events</see>
+    /// </summary>
     public class MessageEvent
     {
         [JsonProperty("envelope")]
@@ -15,7 +16,7 @@ namespace Mailgun.Events
         public Storage Storage { get; set; }
 
         [JsonProperty("user-variables")]
-        public UserVariables UserVariables { get; set; }
+        public Dictionary<string, string> UserVariables { get; set; }
 
         [JsonProperty("tags")]
         public List<object> Tags { get; set; }
@@ -197,8 +198,5 @@ namespace Mailgun.Events
         public string Url { get; set; }
     }
 
-    public class UserVariables
-    {
-    }
 
 }
