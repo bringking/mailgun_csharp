@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2</TargetFramework>
     <IsPackable>True</IsPackable>
-    <PackageVersion>0.7.0</PackageVersion>
+    <PackageVersion>0.8.0</PackageVersion>
     <PackageId>mailgun_csharp</PackageId>
-    <Authors>Charles King</Authors>
+    <Authors>Charles King; Leonid Tsarev</Authors>
     <PackageDescription>
       A .NET Mailgun API wrapper. Currently supports sending messages and batch messages.
     </PackageDescription>
@@ -13,12 +13,11 @@
     <PackageTags>Mailgun API Mailer</PackageTags>
     <RepositoryUrl>https://github.com/bringking/mailgun_csharp</RepositoryUrl>
     <PackageReleaseNotes>
-      Highly likely it will be last release ever.
-       - Package moved to netstandard 2.0.
-       - Added ScheduleDeliveryTime that accepts DateTimeOffset
-       - Set DKIM=true by default
-       - Allow passing IHttpClientFactory
+       - Add first implementation of events
     </PackageReleaseNotes>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+    <DebugType>embedded</DebugType>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,4 +26,7 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 </Project>
