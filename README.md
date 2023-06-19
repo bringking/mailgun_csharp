@@ -79,8 +79,32 @@ The above configuration will send plain text emails using the specified domain a
             });
 ```     
 
+## Event retrieval
+
+Message events (logs) can be retrieved from MailGun using
+
+```csharp
+
+        internal async Task<List<string>> GetFailuresAsync()
+        {
+            var mg = new MessageService(ApiKey);
+	    //the filter structure is defined here: https://documentation.mailgun.com/en/latest/api-events.html#events
+            var events = await mg.GetMessageEventsAsync("mg.conveyor.cloud", "event=rejected OR failed&limit=5");
+            var failures = new List<string>();
+
+            //extract email addresses with permanent failures
+            do
+            {
+                failures.AddRange(events.Items.Where(e=>e.Severity=="permanent").Select(e => e.Recipient));
+            } while ((events = await mg.GetMessageEventsPageAsync(events.Paging.Next)).Items.Count > 0);
+
+            return failures;
+        }
+```    
+
+
 ## TODO
 There is much more to do, but on the plate next are-
 
 * Stored Messages
-* Events
+* Improve events
